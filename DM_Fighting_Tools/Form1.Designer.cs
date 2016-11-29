@@ -59,6 +59,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtIniziativa = new System.Windows.Forms.TextBox();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblCA = new System.Windows.Forms.Label();
+            this.txtCA = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbPG)).BeginInit();
@@ -295,6 +297,8 @@
             // 
             // groupIniziativa
             // 
+            this.groupIniziativa.Controls.Add(this.lblCA);
+            this.groupIniziativa.Controls.Add(this.txtCA);
             this.groupIniziativa.Controls.Add(this.label1);
             this.groupIniziativa.Controls.Add(this.txtIniziativa);
             this.groupIniziativa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -309,7 +313,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 51);
+            this.label1.Location = new System.Drawing.Point(6, 51);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 20);
             this.label1.TabIndex = 2;
@@ -317,7 +321,7 @@
             // 
             // txtIniziativa
             // 
-            this.txtIniziativa.Location = new System.Drawing.Point(128, 45);
+            this.txtIniziativa.Location = new System.Drawing.Point(168, 45);
             this.txtIniziativa.Name = "txtIniziativa";
             this.txtIniziativa.Size = new System.Drawing.Size(100, 26);
             this.txtIniziativa.TabIndex = 1;
@@ -330,6 +334,24 @@
             this.infoToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
             this.infoToolStripMenuItem.Text = "Info";
             this.infoToolStripMenuItem.Click += new System.EventHandler(this.infoToolStripMenuItem_Click);
+            // 
+            // lblCA
+            // 
+            this.lblCA.AutoSize = true;
+            this.lblCA.Location = new System.Drawing.Point(6, 90);
+            this.lblCA.Name = "lblCA";
+            this.lblCA.Size = new System.Drawing.Size(131, 20);
+            this.lblCA.TabIndex = 4;
+            this.lblCA.Text = "Classe Armatura:";
+            // 
+            // txtCA
+            // 
+            this.txtCA.Location = new System.Drawing.Point(168, 90);
+            this.txtCA.Name = "txtCA";
+            this.txtCA.Size = new System.Drawing.Size(100, 26);
+            this.txtCA.TabIndex = 3;
+            this.txtCA.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCA.TextChanged += new System.EventHandler(this.txtCA_TextChanged);
             // 
             // Form1
             // 
@@ -392,6 +414,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CA_Contatto;
         private System.Windows.Forms.DataGridViewTextBoxColumn CA_Sprovvista;
         private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
+        private System.Windows.Forms.Label lblCA;
+        private System.Windows.Forms.TextBox txtCA;
     }
 }
 

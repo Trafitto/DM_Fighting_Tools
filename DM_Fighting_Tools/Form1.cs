@@ -121,7 +121,7 @@ namespace DM_Fighting_Tools
                 
 
             }
-            else if (e.ColumnIndex==1)
+            else if (e.ColumnIndex==1 || e.ColumnIndex==3)
             {
                 groupIniziativa.Visible = true;
                 grupDanni.Visible = false;
@@ -196,6 +196,18 @@ namespace DM_Fighting_Tools
             MessageBox.Show("File:\n nome#iniziativa#vita#classe armatura#CA contatto#Ca sprovvista", "Info",MessageBoxButtons.OK,MessageBoxIcon.Information);
      
 
+        }
+
+        private void txtCA_TextChanged(object sender, EventArgs e)
+        {
+            foreach (Personaggi pg in Personaggi)
+            {
+                if (pg.Name == lblNomePG.Text)
+                {
+                    pg.ClasseArmatura = Convert.ToInt32(txtCA.Text);
+                }
+            }
+            LoadDB();
         }
     }
     
