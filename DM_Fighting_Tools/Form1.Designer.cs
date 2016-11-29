@@ -31,12 +31,24 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.apriToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.nuovoMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.aggiungiAccodaMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.grdPG = new System.Windows.Forms.DataGridView();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iniziativa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lifeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CA_Contatto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CA_Sprovvista = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dbPG = new System.Data.DataSet();
             this.TablePG = new System.Data.DataTable();
             this.dataColumn1 = new System.Data.DataColumn();
             this.dataColumn2 = new System.Data.DataColumn();
             this.dataColumn3 = new System.Data.DataColumn();
+            this.dataColumn4 = new System.Data.DataColumn();
+            this.dataColumn5 = new System.Data.DataColumn();
+            this.dataColumn6 = new System.Data.DataColumn();
             this.openFile = new System.Windows.Forms.OpenFileDialog();
             this.grupDanni = new System.Windows.Forms.GroupBox();
             this.btnAggiungi = new System.Windows.Forms.Button();
@@ -44,20 +56,9 @@
             this.txtmodVita = new System.Windows.Forms.TextBox();
             this.lblNomePG = new System.Windows.Forms.Label();
             this.groupIniziativa = new System.Windows.Forms.GroupBox();
-            this.txtIniziativa = new System.Windows.Forms.TextBox();
-            this.apriToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuovoMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.aggiungiAccodaMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataColumn4 = new System.Data.DataColumn();
-            this.dataColumn5 = new System.Data.DataColumn();
-            this.dataColumn6 = new System.Data.DataColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iniziativa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lifeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CA_Contatto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CA_Sprovvista = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtIniziativa = new System.Windows.Forms.TextBox();
+            this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbPG)).BeginInit();
@@ -69,7 +70,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.infoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(829, 24);
@@ -83,6 +85,29 @@
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
+            // 
+            // apriToolStripMenuItem1
+            // 
+            this.apriToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nuovoMenu,
+            this.aggiungiAccodaMenu});
+            this.apriToolStripMenuItem1.Name = "apriToolStripMenuItem1";
+            this.apriToolStripMenuItem1.Size = new System.Drawing.Size(96, 22);
+            this.apriToolStripMenuItem1.Text = "Apri";
+            // 
+            // nuovoMenu
+            // 
+            this.nuovoMenu.Name = "nuovoMenu";
+            this.nuovoMenu.Size = new System.Drawing.Size(168, 22);
+            this.nuovoMenu.Text = "Nuovo";
+            this.nuovoMenu.Click += new System.EventHandler(this.nuovoMenu_Click);
+            // 
+            // aggiungiAccodaMenu
+            // 
+            this.aggiungiAccodaMenu.Name = "aggiungiAccodaMenu";
+            this.aggiungiAccodaMenu.Size = new System.Drawing.Size(168, 22);
+            this.aggiungiAccodaMenu.Text = "Aggiungi/Accoda";
+            this.aggiungiAccodaMenu.Click += new System.EventHandler(this.aggiungiAccodaMenu_Click);
             // 
             // grdPG
             // 
@@ -105,6 +130,59 @@
             this.grdPG.Size = new System.Drawing.Size(467, 385);
             this.grdPG.TabIndex = 1;
             this.grdPG.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grdPG_CellMouseClick);
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.Frozen = true;
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Nome";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // iniziativa
+            // 
+            this.iniziativa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.iniziativa.DataPropertyName = "Iniziativa";
+            this.iniziativa.Frozen = true;
+            this.iniziativa.HeaderText = "Iniziativa";
+            this.iniziativa.Name = "iniziativa";
+            this.iniziativa.ReadOnly = true;
+            this.iniziativa.Width = 73;
+            // 
+            // lifeDataGridViewTextBoxColumn
+            // 
+            this.lifeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.lifeDataGridViewTextBoxColumn.DataPropertyName = "Life";
+            this.lifeDataGridViewTextBoxColumn.Frozen = true;
+            this.lifeDataGridViewTextBoxColumn.HeaderText = "Vita";
+            this.lifeDataGridViewTextBoxColumn.Name = "lifeDataGridViewTextBoxColumn";
+            this.lifeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lifeDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // CA
+            // 
+            this.CA.DataPropertyName = "CA";
+            this.CA.Frozen = true;
+            this.CA.HeaderText = "CA";
+            this.CA.Name = "CA";
+            this.CA.Width = 46;
+            // 
+            // CA_Contatto
+            // 
+            this.CA_Contatto.DataPropertyName = "CA_Contatto";
+            this.CA_Contatto.Frozen = true;
+            this.CA_Contatto.HeaderText = "CA_Contatto";
+            this.CA_Contatto.Name = "CA_Contatto";
+            this.CA_Contatto.Width = 92;
+            // 
+            // CA_Sprovvista
+            // 
+            this.CA_Sprovvista.DataPropertyName = "CA_Sprovvista";
+            this.CA_Sprovvista.Frozen = true;
+            this.CA_Sprovvista.HeaderText = "CA_Sprovvista";
+            this.CA_Sprovvista.Name = "CA_Sprovvista";
+            this.CA_Sprovvista.Width = 102;
             // 
             // dbPG
             // 
@@ -143,6 +221,21 @@
             this.dataColumn3.Caption = "Vita";
             this.dataColumn3.ColumnName = "Life";
             this.dataColumn3.DataType = typeof(int);
+            // 
+            // dataColumn4
+            // 
+            this.dataColumn4.ColumnName = "CA";
+            this.dataColumn4.DataType = typeof(int);
+            // 
+            // dataColumn5
+            // 
+            this.dataColumn5.ColumnName = "CA_Contatto";
+            this.dataColumn5.DataType = typeof(int);
+            // 
+            // dataColumn6
+            // 
+            this.dataColumn6.ColumnName = "CA_Sprovvista";
+            this.dataColumn6.DataType = typeof(int);
             // 
             // openFile
             // 
@@ -213,38 +306,6 @@
             this.groupIniziativa.Text = "Dati: Iniziativa ecc.";
             this.groupIniziativa.Visible = false;
             // 
-            // txtIniziativa
-            // 
-            this.txtIniziativa.Location = new System.Drawing.Point(128, 45);
-            this.txtIniziativa.Name = "txtIniziativa";
-            this.txtIniziativa.Size = new System.Drawing.Size(100, 26);
-            this.txtIniziativa.TabIndex = 1;
-            this.txtIniziativa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtIniziativa.TextChanged += new System.EventHandler(this.txtIniziativa_TextChanged);
-            // 
-            // apriToolStripMenuItem1
-            // 
-            this.apriToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuovoMenu,
-            this.aggiungiAccodaMenu});
-            this.apriToolStripMenuItem1.Name = "apriToolStripMenuItem1";
-            this.apriToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.apriToolStripMenuItem1.Text = "Apri";
-            // 
-            // nuovoMenu
-            // 
-            this.nuovoMenu.Name = "nuovoMenu";
-            this.nuovoMenu.Size = new System.Drawing.Size(168, 22);
-            this.nuovoMenu.Text = "Nuovo";
-            this.nuovoMenu.Click += new System.EventHandler(this.nuovoMenu_Click);
-            // 
-            // aggiungiAccodaMenu
-            // 
-            this.aggiungiAccodaMenu.Name = "aggiungiAccodaMenu";
-            this.aggiungiAccodaMenu.Size = new System.Drawing.Size(168, 22);
-            this.aggiungiAccodaMenu.Text = "Aggiungi/Accoda";
-            this.aggiungiAccodaMenu.Click += new System.EventHandler(this.aggiungiAccodaMenu_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -254,73 +315,21 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Iniziativa:";
             // 
-            // dataColumn4
+            // txtIniziativa
             // 
-            this.dataColumn4.ColumnName = "CA";
-            this.dataColumn4.DataType = typeof(int);
+            this.txtIniziativa.Location = new System.Drawing.Point(128, 45);
+            this.txtIniziativa.Name = "txtIniziativa";
+            this.txtIniziativa.Size = new System.Drawing.Size(100, 26);
+            this.txtIniziativa.TabIndex = 1;
+            this.txtIniziativa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtIniziativa.TextChanged += new System.EventHandler(this.txtIniziativa_TextChanged);
             // 
-            // dataColumn5
+            // infoToolStripMenuItem
             // 
-            this.dataColumn5.ColumnName = "CA_Contatto";
-            this.dataColumn5.DataType = typeof(int);
-            // 
-            // dataColumn6
-            // 
-            this.dataColumn6.ColumnName = "CA_Sprovvista";
-            this.dataColumn6.DataType = typeof(int);
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.Frozen = true;
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Nome";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Width = 60;
-            // 
-            // iniziativa
-            // 
-            this.iniziativa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.iniziativa.DataPropertyName = "Iniziativa";
-            this.iniziativa.Frozen = true;
-            this.iniziativa.HeaderText = "Iniziativa";
-            this.iniziativa.Name = "iniziativa";
-            this.iniziativa.ReadOnly = true;
-            this.iniziativa.Width = 73;
-            // 
-            // lifeDataGridViewTextBoxColumn
-            // 
-            this.lifeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.lifeDataGridViewTextBoxColumn.DataPropertyName = "Life";
-            this.lifeDataGridViewTextBoxColumn.Frozen = true;
-            this.lifeDataGridViewTextBoxColumn.HeaderText = "Vita";
-            this.lifeDataGridViewTextBoxColumn.Name = "lifeDataGridViewTextBoxColumn";
-            this.lifeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.lifeDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // CA
-            // 
-            this.CA.DataPropertyName = "CA";
-            this.CA.Frozen = true;
-            this.CA.HeaderText = "CA";
-            this.CA.Name = "CA";
-            this.CA.Width = 46;
-            // 
-            // CA_Contatto
-            // 
-            this.CA_Contatto.DataPropertyName = "CA_Contatto";
-            this.CA_Contatto.Frozen = true;
-            this.CA_Contatto.HeaderText = "CA_Contatto";
-            this.CA_Contatto.Name = "CA_Contatto";
-            this.CA_Contatto.Width = 92;
-            // 
-            // CA_Sprovvista
-            // 
-            this.CA_Sprovvista.DataPropertyName = "CA_Sprovvista";
-            this.CA_Sprovvista.Frozen = true;
-            this.CA_Sprovvista.HeaderText = "CA_Sprovvista";
-            this.CA_Sprovvista.Name = "CA_Sprovvista";
-            this.CA_Sprovvista.Width = 102;
+            this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
+            this.infoToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
+            this.infoToolStripMenuItem.Text = "Info";
+            this.infoToolStripMenuItem.Click += new System.EventHandler(this.infoToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -382,6 +391,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CA;
         private System.Windows.Forms.DataGridViewTextBoxColumn CA_Contatto;
         private System.Windows.Forms.DataGridViewTextBoxColumn CA_Sprovvista;
+        private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
     }
 }
 

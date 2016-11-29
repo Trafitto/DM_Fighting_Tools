@@ -121,11 +121,16 @@ namespace DM_Fighting_Tools
                 
 
             }
-            if (e.ColumnIndex==1)
+            else if (e.ColumnIndex==1)
             {
                 groupIniziativa.Visible = true;
                 grupDanni.Visible = false;
               
+            }
+            else
+            {
+                groupIniziativa.Visible = false;
+                grupDanni.Visible = false;
             }
           
 
@@ -184,6 +189,13 @@ namespace DM_Fighting_Tools
             {
                 readFile(openFile.FileName, Personaggi,false);
             }
+        }
+
+        private void infoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("File:\n nome#iniziativa#vita#classe armatura#CA contatto#Ca sprovvista", "Info",MessageBoxButtons.OK,MessageBoxIcon.Information);
+     
+
         }
     }
     
