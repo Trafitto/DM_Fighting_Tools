@@ -61,6 +61,8 @@
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblCA = new System.Windows.Forms.Label();
             this.txtCA = new System.Windows.Forms.TextBox();
+            this.lblCAcontatto = new System.Windows.Forms.Label();
+            this.txtCAcontatto = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbPG)).BeginInit();
@@ -297,6 +299,8 @@
             // 
             // groupIniziativa
             // 
+            this.groupIniziativa.Controls.Add(this.lblCAcontatto);
+            this.groupIniziativa.Controls.Add(this.txtCAcontatto);
             this.groupIniziativa.Controls.Add(this.lblCA);
             this.groupIniziativa.Controls.Add(this.txtCA);
             this.groupIniziativa.Controls.Add(this.label1);
@@ -352,6 +356,24 @@
             this.txtCA.TabIndex = 3;
             this.txtCA.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCA.TextChanged += new System.EventHandler(this.txtCA_TextChanged);
+            // 
+            // lblCAcontatto
+            // 
+            this.lblCAcontatto.AutoSize = true;
+            this.lblCAcontatto.Location = new System.Drawing.Point(6, 143);
+            this.lblCAcontatto.Name = "lblCAcontatto";
+            this.lblCAcontatto.Size = new System.Drawing.Size(101, 20);
+            this.lblCAcontatto.TabIndex = 6;
+            this.lblCAcontatto.Text = "CA Contatto:";
+            // 
+            // txtCAcontatto
+            // 
+            this.txtCAcontatto.Location = new System.Drawing.Point(168, 143);
+            this.txtCAcontatto.Name = "txtCAcontatto";
+            this.txtCAcontatto.Size = new System.Drawing.Size(100, 26);
+            this.txtCAcontatto.TabIndex = 5;
+            this.txtCAcontatto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCAcontatto.TextChanged += new System.EventHandler(this.txtCAcontatto_TextChanged);
             // 
             // Form1
             // 
@@ -416,6 +438,8 @@
         private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
         private System.Windows.Forms.Label lblCA;
         private System.Windows.Forms.TextBox txtCA;
+        private System.Windows.Forms.Label lblCAcontatto;
+        private System.Windows.Forms.TextBox txtCAcontatto;
     }
 }
 

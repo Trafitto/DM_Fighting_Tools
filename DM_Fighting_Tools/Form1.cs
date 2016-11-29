@@ -121,7 +121,7 @@ namespace DM_Fighting_Tools
                 
 
             }
-            else if (e.ColumnIndex==1 || e.ColumnIndex==3)
+            else if (e.ColumnIndex==1 || e.ColumnIndex==3 || e.ColumnIndex==4)
             {
                 groupIniziativa.Visible = true;
                 grupDanni.Visible = false;
@@ -205,6 +205,18 @@ namespace DM_Fighting_Tools
                 if (pg.Name == lblNomePG.Text)
                 {
                     pg.ClasseArmatura = Convert.ToInt32(txtCA.Text);
+                }
+            }
+            LoadDB();
+        }
+
+        private void txtCAcontatto_TextChanged(object sender, EventArgs e)
+        {
+            foreach (Personaggi pg in Personaggi)
+            {
+                if (pg.Name == lblNomePG.Text)
+                {
+                    pg.CAContatto = Convert.ToInt32(txtCAcontatto.Text);
                 }
             }
             LoadDB();
