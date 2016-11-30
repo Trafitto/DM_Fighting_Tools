@@ -121,10 +121,11 @@ namespace DM_Fighting_Tools
                 
 
             }
-            else if (e.ColumnIndex==1 || e.ColumnIndex==3 || e.ColumnIndex==4)
+            else if (e.ColumnIndex==1 || e.ColumnIndex==3 || e.ColumnIndex==4 || e.ColumnIndex == 5)
             {
                 groupIniziativa.Visible = true;
                 grupDanni.Visible = false;
+                
               
             }
             else
@@ -169,7 +170,10 @@ namespace DM_Fighting_Tools
             {
                 if (pg.Name == lblNomePG.Text)
                 {
-                    pg.Iniziativa= Convert.ToInt32(txtIniziativa.Text);
+                    if (txtIniziativa.Text != null)
+                    {
+                        pg.Iniziativa = Convert.ToInt32(txtIniziativa.Text);
+                    }
                 }
             }
             LoadDB();
@@ -204,7 +208,11 @@ namespace DM_Fighting_Tools
             {
                 if (pg.Name == lblNomePG.Text)
                 {
-                    pg.ClasseArmatura = Convert.ToInt32(txtCA.Text);
+                    if (txtCA.Text != null)
+                    {
+                        pg.ClasseArmatura = Convert.ToInt32(txtCA.Text);
+                    }
+                       
                 }
             }
             LoadDB();
@@ -216,7 +224,27 @@ namespace DM_Fighting_Tools
             {
                 if (pg.Name == lblNomePG.Text)
                 {
-                    pg.CAContatto = Convert.ToInt32(txtCAcontatto.Text);
+                    if (txtCAcontatto.Text != null)
+                    {
+                        pg.CAContatto = Convert.ToInt32(txtCAcontatto.Text);
+                    }
+                       
+                }
+            }
+            LoadDB();
+        }
+
+        private void txtCAsprovvista_TextChanged(object sender, EventArgs e)
+        {
+            foreach (Personaggi pg in Personaggi)
+            {
+                if (pg.Name == lblNomePG.Text)
+                {
+                    if (txtCAsprovvista.Text != null)
+                    {
+                        pg.CASprovvista = Convert.ToInt32(txtCAsprovvista.Text);
+                    }
+                   
                 }
             }
             LoadDB();
