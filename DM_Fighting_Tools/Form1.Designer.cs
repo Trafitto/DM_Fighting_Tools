@@ -36,12 +36,6 @@
             this.aggiungiAccodaMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grdPG = new System.Windows.Forms.DataGridView();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iniziativa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lifeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CA_Contatto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CA_Sprovvista = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dbPG = new System.Data.DataSet();
             this.TablePG = new System.Data.DataTable();
             this.dataColumn1 = new System.Data.DataColumn();
@@ -57,20 +51,32 @@
             this.txtmodVita = new System.Windows.Forms.TextBox();
             this.lblNomePG = new System.Windows.Forms.Label();
             this.groupIniziativa = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtCAsprovvista = new System.Windows.Forms.TextBox();
             this.lblCAcontatto = new System.Windows.Forms.Label();
             this.txtCAcontatto = new System.Windows.Forms.TextBox();
             this.lblCA = new System.Windows.Forms.Label();
             this.txtCA = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtIniziativa = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtCAsprovvista = new System.Windows.Forms.TextBox();
+            this.dataColumn7 = new System.Data.DataColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iniziativa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lifeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CA_Contatto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CA_Sprovvista = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Attacchi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupAttk = new System.Windows.Forms.GroupBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.riTxtAtk = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbPG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TablePG)).BeginInit();
             this.grupDanni.SuspendLayout();
             this.groupIniziativa.SuspendLayout();
+            this.groupAttk.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -135,67 +141,16 @@
             this.lifeDataGridViewTextBoxColumn,
             this.CA,
             this.CA_Contatto,
-            this.CA_Sprovvista});
+            this.CA_Sprovvista,
+            this.Attacchi});
             this.grdPG.DataMember = "PGdata";
             this.grdPG.DataSource = this.dbPG;
             this.grdPG.Location = new System.Drawing.Point(12, 61);
             this.grdPG.Name = "grdPG";
-            this.grdPG.Size = new System.Drawing.Size(470, 385);
+            this.grdPG.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdPG.Size = new System.Drawing.Size(620, 385);
             this.grdPG.TabIndex = 1;
             this.grdPG.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grdPG_CellMouseClick);
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.Frozen = true;
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Nome";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Width = 60;
-            // 
-            // iniziativa
-            // 
-            this.iniziativa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.iniziativa.DataPropertyName = "Iniziativa";
-            this.iniziativa.Frozen = true;
-            this.iniziativa.HeaderText = "Iniziativa";
-            this.iniziativa.Name = "iniziativa";
-            this.iniziativa.ReadOnly = true;
-            this.iniziativa.Width = 73;
-            // 
-            // lifeDataGridViewTextBoxColumn
-            // 
-            this.lifeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.lifeDataGridViewTextBoxColumn.DataPropertyName = "Life";
-            this.lifeDataGridViewTextBoxColumn.Frozen = true;
-            this.lifeDataGridViewTextBoxColumn.HeaderText = "Vita";
-            this.lifeDataGridViewTextBoxColumn.Name = "lifeDataGridViewTextBoxColumn";
-            this.lifeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.lifeDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // CA
-            // 
-            this.CA.DataPropertyName = "CA";
-            this.CA.Frozen = true;
-            this.CA.HeaderText = "CA";
-            this.CA.Name = "CA";
-            this.CA.Width = 46;
-            // 
-            // CA_Contatto
-            // 
-            this.CA_Contatto.DataPropertyName = "CA_Contatto";
-            this.CA_Contatto.Frozen = true;
-            this.CA_Contatto.HeaderText = "CA_Contatto";
-            this.CA_Contatto.Name = "CA_Contatto";
-            this.CA_Contatto.Width = 92;
-            // 
-            // CA_Sprovvista
-            // 
-            this.CA_Sprovvista.DataPropertyName = "CA_Sprovvista";
-            this.CA_Sprovvista.Frozen = true;
-            this.CA_Sprovvista.HeaderText = "CA_Sprovvista";
-            this.CA_Sprovvista.Name = "CA_Sprovvista";
-            this.CA_Sprovvista.Width = 102;
             // 
             // dbPG
             // 
@@ -212,7 +167,8 @@
             this.dataColumn3,
             this.dataColumn4,
             this.dataColumn5,
-            this.dataColumn6});
+            this.dataColumn6,
+            this.dataColumn7});
             this.TablePG.RemotingFormat = System.Data.SerializationFormat.Binary;
             this.TablePG.TableName = "PGdata";
             // 
@@ -260,7 +216,7 @@
             this.grupDanni.Controls.Add(this.btnSottrai);
             this.grupDanni.Controls.Add(this.txtmodVita);
             this.grupDanni.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grupDanni.Location = new System.Drawing.Point(927, 93);
+            this.grupDanni.Location = new System.Drawing.Point(927, 106);
             this.grupDanni.Name = "grupDanni";
             this.grupDanni.Size = new System.Drawing.Size(283, 340);
             this.grupDanni.TabIndex = 2;
@@ -299,10 +255,10 @@
             // lblNomePG
             // 
             this.lblNomePG.AutoSize = true;
-            this.lblNomePG.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomePG.Location = new System.Drawing.Point(1033, 61);
+            this.lblNomePG.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomePG.Location = new System.Drawing.Point(895, 61);
             this.lblNomePG.Name = "lblNomePG";
-            this.lblNomePG.Size = new System.Drawing.Size(43, 20);
+            this.lblNomePG.Size = new System.Drawing.Size(58, 25);
             this.lblNomePG.TabIndex = 0;
             this.lblNomePG.Text = "Title";
             // 
@@ -324,6 +280,24 @@
             this.groupIniziativa.TabStop = false;
             this.groupIniziativa.Text = "Dati: Iniziativa ecc.";
             this.groupIniziativa.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 151);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(112, 20);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "CA Sprovvista:";
+            // 
+            // txtCAsprovvista
+            // 
+            this.txtCAsprovvista.Location = new System.Drawing.Point(168, 151);
+            this.txtCAsprovvista.Name = "txtCAsprovvista";
+            this.txtCAsprovvista.Size = new System.Drawing.Size(100, 26);
+            this.txtCAsprovvista.TabIndex = 7;
+            this.txtCAsprovvista.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCAsprovvista.TextChanged += new System.EventHandler(this.txtCAsprovvista_TextChanged);
             // 
             // lblCAcontatto
             // 
@@ -379,29 +353,95 @@
             this.txtIniziativa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtIniziativa.TextChanged += new System.EventHandler(this.txtIniziativa_TextChanged);
             // 
-            // label2
+            // dataColumn7
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 151);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 20);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "CA Sprovvista:";
+            this.dataColumn7.ColumnName = "Attacchi";
             // 
-            // txtCAsprovvista
+            // nameDataGridViewTextBoxColumn
             // 
-            this.txtCAsprovvista.Location = new System.Drawing.Point(168, 151);
-            this.txtCAsprovvista.Name = "txtCAsprovvista";
-            this.txtCAsprovvista.Size = new System.Drawing.Size(100, 26);
-            this.txtCAsprovvista.TabIndex = 7;
-            this.txtCAsprovvista.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtCAsprovvista.TextChanged += new System.EventHandler(this.txtCAsprovvista_TextChanged);
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.Frozen = true;
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Nome";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // iniziativa
+            // 
+            this.iniziativa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.iniziativa.DataPropertyName = "Iniziativa";
+            this.iniziativa.Frozen = true;
+            this.iniziativa.HeaderText = "Iniziativa";
+            this.iniziativa.Name = "iniziativa";
+            this.iniziativa.Width = 73;
+            // 
+            // lifeDataGridViewTextBoxColumn
+            // 
+            this.lifeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.lifeDataGridViewTextBoxColumn.DataPropertyName = "Life";
+            this.lifeDataGridViewTextBoxColumn.Frozen = true;
+            this.lifeDataGridViewTextBoxColumn.HeaderText = "Vita";
+            this.lifeDataGridViewTextBoxColumn.Name = "lifeDataGridViewTextBoxColumn";
+            this.lifeDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // CA
+            // 
+            this.CA.DataPropertyName = "CA";
+            this.CA.Frozen = true;
+            this.CA.HeaderText = "CA";
+            this.CA.Name = "CA";
+            this.CA.Width = 46;
+            // 
+            // CA_Contatto
+            // 
+            this.CA_Contatto.DataPropertyName = "CA_Contatto";
+            this.CA_Contatto.Frozen = true;
+            this.CA_Contatto.HeaderText = "CA_Contatto";
+            this.CA_Contatto.Name = "CA_Contatto";
+            this.CA_Contatto.Width = 92;
+            // 
+            // CA_Sprovvista
+            // 
+            this.CA_Sprovvista.DataPropertyName = "CA_Sprovvista";
+            this.CA_Sprovvista.Frozen = true;
+            this.CA_Sprovvista.HeaderText = "CA_Sprovvista";
+            this.CA_Sprovvista.Name = "CA_Sprovvista";
+            this.CA_Sprovvista.Width = 102;
+            // 
+            // Attacchi
+            // 
+            this.Attacchi.DataPropertyName = "Attacchi";
+            this.Attacchi.Frozen = true;
+            this.Attacchi.HeaderText = "Attacchi";
+            this.Attacchi.Name = "Attacchi";
+            this.Attacchi.Width = 71;
+            // 
+            // groupAttk
+            // 
+            this.groupAttk.Controls.Add(this.riTxtAtk);
+            this.groupAttk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupAttk.Location = new System.Drawing.Point(648, 106);
+            this.groupAttk.Name = "groupAttk";
+            this.groupAttk.Size = new System.Drawing.Size(273, 340);
+            this.groupAttk.TabIndex = 6;
+            this.groupAttk.TabStop = false;
+            this.groupAttk.Text = "Attacchi";
+            // 
+            // riTxtAtk
+            // 
+            this.riTxtAtk.Location = new System.Drawing.Point(6, 36);
+            this.riTxtAtk.Name = "riTxtAtk";
+            this.riTxtAtk.ReadOnly = true;
+            this.riTxtAtk.Size = new System.Drawing.Size(261, 298);
+            this.riTxtAtk.TabIndex = 1;
+            this.riTxtAtk.Text = "";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1222, 511);
+            this.ClientSize = new System.Drawing.Size(1222, 504);
+            this.Controls.Add(this.groupAttk);
             this.Controls.Add(this.groupIniziativa);
             this.Controls.Add(this.grupDanni);
             this.Controls.Add(this.grdPG);
@@ -421,6 +461,7 @@
             this.grupDanni.PerformLayout();
             this.groupIniziativa.ResumeLayout(false);
             this.groupIniziativa.PerformLayout();
+            this.groupAttk.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -451,12 +492,6 @@
         private System.Data.DataColumn dataColumn4;
         private System.Data.DataColumn dataColumn5;
         private System.Data.DataColumn dataColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iniziativa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lifeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CA_Contatto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CA_Sprovvista;
         private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
         private System.Windows.Forms.Label lblCA;
         private System.Windows.Forms.TextBox txtCA;
@@ -464,6 +499,17 @@
         private System.Windows.Forms.TextBox txtCAcontatto;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCAsprovvista;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iniziativa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lifeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CA_Contatto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CA_Sprovvista;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Attacchi;
+        private System.Data.DataColumn dataColumn7;
+        private System.Windows.Forms.GroupBox groupAttk;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.RichTextBox riTxtAtk;
     }
 }
 

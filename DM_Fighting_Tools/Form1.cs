@@ -21,25 +21,38 @@ namespace DM_Fighting_Tools
             {
                 Personaggi.Clear();
             }
-            
+           
             if (File.Exists(path))
             {
                 try
                 {
 
-               
+                   // List<Attacchi> attacchi = new List<Attacchi>();
                     stReader = new StreamReader(path);
                     string line;
-                    while ((line=stReader.ReadLine())!=null)
+                    stReader.ReadLine(); //salto la prima riga d'intestazione
+                    while ((line = stReader.ReadLine()) != null)
                     {
-                        string[] parametro = line.Split('#');
-                        pg.Add(new Personaggi(parametro[0],Convert.ToInt32(parametro[1]),Convert.ToInt32(parametro[2]), Convert.ToInt32(parametro[3]), Convert.ToInt32(parametro[4]), Convert.ToInt32(parametro[5])));
+
+                        string[] parametro = line.Split(';');
+                       /* string[] armaNome = parametro[6].Split('-');
+                        for (int i = 0; i < armaNome.Length; i++)
+                        {
+                            string[] a = armaNome[i].Split('|');
+                            attacchi.Add(new Attacchi(a[0], a[1]));
+                        }*/
+
+
+                        pg.Add(new Personaggi(parametro[0], Convert.ToInt32(parametro[1]), Convert.ToInt32(parametro[2]), Convert.ToInt32(parametro[3]), Convert.ToInt32(parametro[4]), Convert.ToInt32(parametro[5]),parametro[6]));
+
+                       // attacchi.Clear();
+
 
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("File non trovato:\n"+ex.Message, "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("File non trovato:\n" + ex.Message, "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -57,11 +70,12 @@ namespace DM_Fighting_Tools
             TablePG.Clear();
             foreach (Personaggi pg in Personaggi)
             {
-                TablePG.Rows.Add(pg.Name, pg.Iniziativa, pg.Life,pg.ClasseArmatura,pg.CAContatto,pg.CASprovvista);
+                TablePG.Rows.Add(pg.Name, pg.Iniziativa, pg.Life,pg.ClasseArmatura,pg.CAContatto,pg.CASprovvista,pg.Attacchi);
 
             }
            
             grdPG.Refresh();
+            
             grdPG.Sort(grdPG.Columns["iniziativa"], ListSortDirection.Descending);
             
         }
@@ -87,9 +101,16 @@ namespace DM_Fighting_Tools
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string fileLoad = "Personaggi.txt";
-            
-            readFile(fileLoad, Personaggi,true);
+            string fileLoad = "Personaggi.csv";
+            try
+            {
+                readFile(fileLoad, Personaggi, true);
+            }
+            catch (Exception ex)
+            {
+
+            }
+           
             
 
             
@@ -97,7 +118,26 @@ namespace DM_Fighting_Tools
             
         }
 
-   
+        private void SelectAtk()
+        {
+            foreach (Personaggi pg in Personaggi)
+            {
+                if (pg.Name == lblNomePG.Text)
+                {
+                    riTxtAtk.Text = "";
+                    string[] AtkNome = pg.Attacchi.Split('-');
+                    for (int i = 0; i < AtkNome.Length; i++)
+                    {
+                        string[] atk = AtkNome[i].Split('|');
+                        for (int j = 0; j < atk.Length - 1; j++)
+                        {
+                            riTxtAtk.Text += atk[j] + " " + atk[j + 1] + "\n";
+                        }
+                    }
+
+                }
+            }
+        }
     
     
         private void grdPG_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -112,6 +152,7 @@ namespace DM_Fighting_Tools
             {
                
             }
+            
             if (e.ColumnIndex==2) //indice colonna vita
             {
                 //DataGridViewCell cell = grdPG.Rows[e.RowIndex].Cells[e.ColumnIndex];
@@ -121,20 +162,21 @@ namespace DM_Fighting_Tools
                 
 
             }
-            else if (e.ColumnIndex==1 || e.ColumnIndex==3 || e.ColumnIndex==4 || e.ColumnIndex == 5)
+            else if (e.ColumnIndex==1 || e.ColumnIndex==3 || e.ColumnIndex==4 || e.ColumnIndex == 5 || e.ColumnIndex == 6)
             {
                 groupIniziativa.Visible = true;
                 grupDanni.Visible = false;
                 
               
             }
+       
             else
             {
                 groupIniziativa.Visible = false;
                 grupDanni.Visible = false;
             }
-          
 
+            SelectAtk();
         }
 
         private void button1_Click(object sender, EventArgs e) //btnsottrai
@@ -197,7 +239,7 @@ namespace DM_Fighting_Tools
 
         private void infoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("File:\n nome#iniziativa#vita#classe armatura#CA contatto#Ca sprovvista", "Info",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            MessageBox.Show("Il file deve essere un csv separato da ; con la prima riga d'intestazione\nLe colonne sono riportate di seguito\n nome;iniziativa;vita;classe armatura;CA contatto;Ca sprovvista;NomeAttacco|dadi-NomeAttacco2|dadi", "Info",MessageBoxButtons.OK,MessageBoxIcon.Information);
      
 
         }
