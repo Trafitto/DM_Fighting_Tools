@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace DM_Fighting_Tools
 {
-    class Attacchi
+    class Unused_Attacchi
     {
         string nome;
         string dadiDanno;
 
-        public Attacchi(string nome, string dadiDanno)
+        public Unused_Attacchi(string nome, string dadiDanno)
         {
             this.nome = nome;
             this.dadiDanno = dadiDanno;
