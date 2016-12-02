@@ -36,6 +36,13 @@
             this.aggiungiAccodaMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grdPG = new System.Windows.Forms.DataGridView();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iniziativa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lifeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CA_Contatto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CA_Sprovvista = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Attacchi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dbPG = new System.Data.DataSet();
             this.TablePG = new System.Data.DataTable();
             this.dataColumn1 = new System.Data.DataColumn();
@@ -44,6 +51,7 @@
             this.dataColumn4 = new System.Data.DataColumn();
             this.dataColumn5 = new System.Data.DataColumn();
             this.dataColumn6 = new System.Data.DataColumn();
+            this.dataColumn7 = new System.Data.DataColumn();
             this.openFile = new System.Windows.Forms.OpenFileDialog();
             this.grupDanni = new System.Windows.Forms.GroupBox();
             this.btnAggiungi = new System.Windows.Forms.Button();
@@ -59,17 +67,9 @@
             this.txtCA = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtIniziativa = new System.Windows.Forms.TextBox();
-            this.dataColumn7 = new System.Data.DataColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iniziativa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lifeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CA_Contatto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CA_Sprovvista = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Attacchi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupAttk = new System.Windows.Forms.GroupBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.riTxtAtk = new System.Windows.Forms.RichTextBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbPG)).BeginInit();
@@ -86,7 +86,7 @@
             this.infoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1222, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1233, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -104,7 +104,7 @@
             this.nuovoMenu,
             this.aggiungiAccodaMenu});
             this.apriToolStripMenuItem1.Name = "apriToolStripMenuItem1";
-            this.apriToolStripMenuItem1.Size = new System.Drawing.Size(96, 22);
+            this.apriToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.apriToolStripMenuItem1.Text = "Apri";
             // 
             // nuovoMenu
@@ -151,211 +151,6 @@
             this.grdPG.Size = new System.Drawing.Size(620, 385);
             this.grdPG.TabIndex = 1;
             this.grdPG.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grdPG_CellMouseClick);
-            // 
-            // dbPG
-            // 
-            this.dbPG.DataSetName = "dbPB";
-            this.dbPG.RemotingFormat = System.Data.SerializationFormat.Binary;
-            this.dbPG.Tables.AddRange(new System.Data.DataTable[] {
-            this.TablePG});
-            // 
-            // TablePG
-            // 
-            this.TablePG.Columns.AddRange(new System.Data.DataColumn[] {
-            this.dataColumn1,
-            this.dataColumn2,
-            this.dataColumn3,
-            this.dataColumn4,
-            this.dataColumn5,
-            this.dataColumn6,
-            this.dataColumn7});
-            this.TablePG.RemotingFormat = System.Data.SerializationFormat.Binary;
-            this.TablePG.TableName = "PGdata";
-            // 
-            // dataColumn1
-            // 
-            this.dataColumn1.AllowDBNull = false;
-            this.dataColumn1.Caption = "Nome";
-            this.dataColumn1.ColumnName = "Name";
-            // 
-            // dataColumn2
-            // 
-            this.dataColumn2.AllowDBNull = false;
-            this.dataColumn2.ColumnName = "Iniziativa";
-            this.dataColumn2.DataType = typeof(int);
-            // 
-            // dataColumn3
-            // 
-            this.dataColumn3.AllowDBNull = false;
-            this.dataColumn3.Caption = "Vita";
-            this.dataColumn3.ColumnName = "Life";
-            this.dataColumn3.DataType = typeof(int);
-            // 
-            // dataColumn4
-            // 
-            this.dataColumn4.ColumnName = "CA";
-            this.dataColumn4.DataType = typeof(int);
-            // 
-            // dataColumn5
-            // 
-            this.dataColumn5.ColumnName = "CA_Contatto";
-            this.dataColumn5.DataType = typeof(int);
-            // 
-            // dataColumn6
-            // 
-            this.dataColumn6.ColumnName = "CA_Sprovvista";
-            this.dataColumn6.DataType = typeof(int);
-            // 
-            // openFile
-            // 
-            this.openFile.FileName = "Personaggi.txt";
-            // 
-            // grupDanni
-            // 
-            this.grupDanni.Controls.Add(this.btnAggiungi);
-            this.grupDanni.Controls.Add(this.btnSottrai);
-            this.grupDanni.Controls.Add(this.txtmodVita);
-            this.grupDanni.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grupDanni.Location = new System.Drawing.Point(927, 106);
-            this.grupDanni.Name = "grupDanni";
-            this.grupDanni.Size = new System.Drawing.Size(283, 340);
-            this.grupDanni.TabIndex = 2;
-            this.grupDanni.TabStop = false;
-            this.grupDanni.Text = "Danni";
-            this.grupDanni.Visible = false;
-            // 
-            // btnAggiungi
-            // 
-            this.btnAggiungi.Location = new System.Drawing.Point(225, 48);
-            this.btnAggiungi.Name = "btnAggiungi";
-            this.btnAggiungi.Size = new System.Drawing.Size(34, 23);
-            this.btnAggiungi.TabIndex = 4;
-            this.btnAggiungi.Text = "+";
-            this.btnAggiungi.UseVisualStyleBackColor = true;
-            this.btnAggiungi.Click += new System.EventHandler(this.btnAggiungi_Click);
-            // 
-            // btnSottrai
-            // 
-            this.btnSottrai.Location = new System.Drawing.Point(168, 48);
-            this.btnSottrai.Name = "btnSottrai";
-            this.btnSottrai.Size = new System.Drawing.Size(34, 23);
-            this.btnSottrai.TabIndex = 2;
-            this.btnSottrai.Text = "-";
-            this.btnSottrai.UseVisualStyleBackColor = true;
-            this.btnSottrai.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // txtmodVita
-            // 
-            this.txtmodVita.Location = new System.Drawing.Point(39, 48);
-            this.txtmodVita.Name = "txtmodVita";
-            this.txtmodVita.Size = new System.Drawing.Size(100, 26);
-            this.txtmodVita.TabIndex = 1;
-            this.txtmodVita.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lblNomePG
-            // 
-            this.lblNomePG.AutoSize = true;
-            this.lblNomePG.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomePG.Location = new System.Drawing.Point(895, 61);
-            this.lblNomePG.Name = "lblNomePG";
-            this.lblNomePG.Size = new System.Drawing.Size(58, 25);
-            this.lblNomePG.TabIndex = 0;
-            this.lblNomePG.Text = "Title";
-            // 
-            // groupIniziativa
-            // 
-            this.groupIniziativa.Controls.Add(this.label2);
-            this.groupIniziativa.Controls.Add(this.txtCAsprovvista);
-            this.groupIniziativa.Controls.Add(this.lblCAcontatto);
-            this.groupIniziativa.Controls.Add(this.txtCAcontatto);
-            this.groupIniziativa.Controls.Add(this.lblCA);
-            this.groupIniziativa.Controls.Add(this.txtCA);
-            this.groupIniziativa.Controls.Add(this.label1);
-            this.groupIniziativa.Controls.Add(this.txtIniziativa);
-            this.groupIniziativa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupIniziativa.Location = new System.Drawing.Point(927, 106);
-            this.groupIniziativa.Name = "groupIniziativa";
-            this.groupIniziativa.Size = new System.Drawing.Size(283, 340);
-            this.groupIniziativa.TabIndex = 5;
-            this.groupIniziativa.TabStop = false;
-            this.groupIniziativa.Text = "Dati: Iniziativa ecc.";
-            this.groupIniziativa.Visible = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 151);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 20);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "CA Sprovvista:";
-            // 
-            // txtCAsprovvista
-            // 
-            this.txtCAsprovvista.Location = new System.Drawing.Point(168, 151);
-            this.txtCAsprovvista.Name = "txtCAsprovvista";
-            this.txtCAsprovvista.Size = new System.Drawing.Size(100, 26);
-            this.txtCAsprovvista.TabIndex = 7;
-            this.txtCAsprovvista.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtCAsprovvista.TextChanged += new System.EventHandler(this.txtCAsprovvista_TextChanged);
-            // 
-            // lblCAcontatto
-            // 
-            this.lblCAcontatto.AutoSize = true;
-            this.lblCAcontatto.Location = new System.Drawing.Point(6, 111);
-            this.lblCAcontatto.Name = "lblCAcontatto";
-            this.lblCAcontatto.Size = new System.Drawing.Size(101, 20);
-            this.lblCAcontatto.TabIndex = 6;
-            this.lblCAcontatto.Text = "CA Contatto:";
-            // 
-            // txtCAcontatto
-            // 
-            this.txtCAcontatto.Location = new System.Drawing.Point(168, 111);
-            this.txtCAcontatto.Name = "txtCAcontatto";
-            this.txtCAcontatto.Size = new System.Drawing.Size(100, 26);
-            this.txtCAcontatto.TabIndex = 5;
-            this.txtCAcontatto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtCAcontatto.TextChanged += new System.EventHandler(this.txtCAcontatto_TextChanged);
-            // 
-            // lblCA
-            // 
-            this.lblCA.AutoSize = true;
-            this.lblCA.Location = new System.Drawing.Point(6, 71);
-            this.lblCA.Name = "lblCA";
-            this.lblCA.Size = new System.Drawing.Size(131, 20);
-            this.lblCA.TabIndex = 4;
-            this.lblCA.Text = "Classe Armatura:";
-            // 
-            // txtCA
-            // 
-            this.txtCA.Location = new System.Drawing.Point(168, 71);
-            this.txtCA.Name = "txtCA";
-            this.txtCA.Size = new System.Drawing.Size(100, 26);
-            this.txtCA.TabIndex = 3;
-            this.txtCA.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtCA.TextChanged += new System.EventHandler(this.txtCA_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 20);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Iniziativa:";
-            // 
-            // txtIniziativa
-            // 
-            this.txtIniziativa.Location = new System.Drawing.Point(168, 36);
-            this.txtIniziativa.Name = "txtIniziativa";
-            this.txtIniziativa.Size = new System.Drawing.Size(100, 26);
-            this.txtIniziativa.TabIndex = 1;
-            this.txtIniziativa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtIniziativa.TextChanged += new System.EventHandler(this.txtIniziativa_TextChanged);
-            // 
-            // dataColumn7
-            // 
-            this.dataColumn7.ColumnName = "Attacchi";
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -416,23 +211,228 @@
             this.Attacchi.Name = "Attacchi";
             this.Attacchi.Width = 71;
             // 
+            // dbPG
+            // 
+            this.dbPG.DataSetName = "dbPB";
+            this.dbPG.RemotingFormat = System.Data.SerializationFormat.Binary;
+            this.dbPG.Tables.AddRange(new System.Data.DataTable[] {
+            this.TablePG});
+            // 
+            // TablePG
+            // 
+            this.TablePG.Columns.AddRange(new System.Data.DataColumn[] {
+            this.dataColumn1,
+            this.dataColumn2,
+            this.dataColumn3,
+            this.dataColumn4,
+            this.dataColumn5,
+            this.dataColumn6,
+            this.dataColumn7});
+            this.TablePG.RemotingFormat = System.Data.SerializationFormat.Binary;
+            this.TablePG.TableName = "PGdata";
+            // 
+            // dataColumn1
+            // 
+            this.dataColumn1.AllowDBNull = false;
+            this.dataColumn1.Caption = "Nome";
+            this.dataColumn1.ColumnName = "Name";
+            // 
+            // dataColumn2
+            // 
+            this.dataColumn2.AllowDBNull = false;
+            this.dataColumn2.ColumnName = "Iniziativa";
+            this.dataColumn2.DataType = typeof(int);
+            // 
+            // dataColumn3
+            // 
+            this.dataColumn3.AllowDBNull = false;
+            this.dataColumn3.Caption = "Vita";
+            this.dataColumn3.ColumnName = "Life";
+            this.dataColumn3.DataType = typeof(int);
+            // 
+            // dataColumn4
+            // 
+            this.dataColumn4.ColumnName = "CA";
+            this.dataColumn4.DataType = typeof(int);
+            // 
+            // dataColumn5
+            // 
+            this.dataColumn5.ColumnName = "CA_Contatto";
+            this.dataColumn5.DataType = typeof(int);
+            // 
+            // dataColumn6
+            // 
+            this.dataColumn6.ColumnName = "CA_Sprovvista";
+            this.dataColumn6.DataType = typeof(int);
+            // 
+            // dataColumn7
+            // 
+            this.dataColumn7.ColumnName = "Attacchi";
+            // 
+            // openFile
+            // 
+            this.openFile.Filter = "File csv |*.csv| Tutti i file|*.*";
+            // 
+            // grupDanni
+            // 
+            this.grupDanni.Controls.Add(this.btnAggiungi);
+            this.grupDanni.Controls.Add(this.btnSottrai);
+            this.grupDanni.Controls.Add(this.txtmodVita);
+            this.grupDanni.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grupDanni.Location = new System.Drawing.Point(10, 25);
+            this.grupDanni.Name = "grupDanni";
+            this.grupDanni.Size = new System.Drawing.Size(267, 59);
+            this.grupDanni.TabIndex = 2;
+            this.grupDanni.TabStop = false;
+            this.grupDanni.Text = "Danni";
+            // 
+            // btnAggiungi
+            // 
+            this.btnAggiungi.Location = new System.Drawing.Point(203, 29);
+            this.btnAggiungi.Name = "btnAggiungi";
+            this.btnAggiungi.Size = new System.Drawing.Size(34, 23);
+            this.btnAggiungi.TabIndex = 4;
+            this.btnAggiungi.Text = "+";
+            this.btnAggiungi.UseVisualStyleBackColor = true;
+            this.btnAggiungi.Click += new System.EventHandler(this.btnAggiungi_Click);
+            // 
+            // btnSottrai
+            // 
+            this.btnSottrai.Location = new System.Drawing.Point(144, 29);
+            this.btnSottrai.Name = "btnSottrai";
+            this.btnSottrai.Size = new System.Drawing.Size(34, 23);
+            this.btnSottrai.TabIndex = 2;
+            this.btnSottrai.Text = "-";
+            this.btnSottrai.UseVisualStyleBackColor = true;
+            this.btnSottrai.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtmodVita
+            // 
+            this.txtmodVita.Location = new System.Drawing.Point(20, 27);
+            this.txtmodVita.Name = "txtmodVita";
+            this.txtmodVita.Size = new System.Drawing.Size(100, 21);
+            this.txtmodVita.TabIndex = 1;
+            this.txtmodVita.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblNomePG
+            // 
+            this.lblNomePG.AutoSize = true;
+            this.lblNomePG.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomePG.Location = new System.Drawing.Point(913, 36);
+            this.lblNomePG.Name = "lblNomePG";
+            this.lblNomePG.Size = new System.Drawing.Size(111, 25);
+            this.lblNomePG.TabIndex = 0;
+            this.lblNomePG.Text = "Nome PG";
+            // 
+            // groupIniziativa
+            // 
+            this.groupIniziativa.Controls.Add(this.label2);
+            this.groupIniziativa.Controls.Add(this.grupDanni);
+            this.groupIniziativa.Controls.Add(this.txtCAsprovvista);
+            this.groupIniziativa.Controls.Add(this.lblCAcontatto);
+            this.groupIniziativa.Controls.Add(this.txtCAcontatto);
+            this.groupIniziativa.Controls.Add(this.lblCA);
+            this.groupIniziativa.Controls.Add(this.txtCA);
+            this.groupIniziativa.Controls.Add(this.label1);
+            this.groupIniziativa.Controls.Add(this.txtIniziativa);
+            this.groupIniziativa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupIniziativa.Location = new System.Drawing.Point(939, 84);
+            this.groupIniziativa.Name = "groupIniziativa";
+            this.groupIniziativa.Size = new System.Drawing.Size(283, 362);
+            this.groupIniziativa.TabIndex = 5;
+            this.groupIniziativa.TabStop = false;
+            this.groupIniziativa.Text = "Dati: Iniziativa ecc.";
+            this.groupIniziativa.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 220);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(112, 20);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "CA Sprovvista:";
+            // 
+            // txtCAsprovvista
+            // 
+            this.txtCAsprovvista.Location = new System.Drawing.Point(168, 220);
+            this.txtCAsprovvista.Name = "txtCAsprovvista";
+            this.txtCAsprovvista.Size = new System.Drawing.Size(100, 26);
+            this.txtCAsprovvista.TabIndex = 7;
+            this.txtCAsprovvista.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCAsprovvista.TextChanged += new System.EventHandler(this.txtCAsprovvista_TextChanged);
+            // 
+            // lblCAcontatto
+            // 
+            this.lblCAcontatto.AutoSize = true;
+            this.lblCAcontatto.Location = new System.Drawing.Point(6, 180);
+            this.lblCAcontatto.Name = "lblCAcontatto";
+            this.lblCAcontatto.Size = new System.Drawing.Size(101, 20);
+            this.lblCAcontatto.TabIndex = 6;
+            this.lblCAcontatto.Text = "CA Contatto:";
+            // 
+            // txtCAcontatto
+            // 
+            this.txtCAcontatto.Location = new System.Drawing.Point(168, 180);
+            this.txtCAcontatto.Name = "txtCAcontatto";
+            this.txtCAcontatto.Size = new System.Drawing.Size(100, 26);
+            this.txtCAcontatto.TabIndex = 5;
+            this.txtCAcontatto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCAcontatto.TextChanged += new System.EventHandler(this.txtCAcontatto_TextChanged);
+            // 
+            // lblCA
+            // 
+            this.lblCA.AutoSize = true;
+            this.lblCA.Location = new System.Drawing.Point(6, 140);
+            this.lblCA.Name = "lblCA";
+            this.lblCA.Size = new System.Drawing.Size(131, 20);
+            this.lblCA.TabIndex = 4;
+            this.lblCA.Text = "Classe Armatura:";
+            // 
+            // txtCA
+            // 
+            this.txtCA.Location = new System.Drawing.Point(168, 140);
+            this.txtCA.Name = "txtCA";
+            this.txtCA.Size = new System.Drawing.Size(100, 26);
+            this.txtCA.TabIndex = 3;
+            this.txtCA.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCA.TextChanged += new System.EventHandler(this.txtCA_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 107);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 20);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Iniziativa:";
+            // 
+            // txtIniziativa
+            // 
+            this.txtIniziativa.Location = new System.Drawing.Point(168, 101);
+            this.txtIniziativa.Name = "txtIniziativa";
+            this.txtIniziativa.Size = new System.Drawing.Size(100, 26);
+            this.txtIniziativa.TabIndex = 1;
+            this.txtIniziativa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtIniziativa.TextChanged += new System.EventHandler(this.txtIniziativa_TextChanged);
+            // 
             // groupAttk
             // 
             this.groupAttk.Controls.Add(this.riTxtAtk);
             this.groupAttk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupAttk.Location = new System.Drawing.Point(648, 106);
+            this.groupAttk.Location = new System.Drawing.Point(648, 84);
             this.groupAttk.Name = "groupAttk";
-            this.groupAttk.Size = new System.Drawing.Size(273, 340);
+            this.groupAttk.Size = new System.Drawing.Size(273, 362);
             this.groupAttk.TabIndex = 6;
             this.groupAttk.TabStop = false;
             this.groupAttk.Text = "Attacchi";
             // 
             // riTxtAtk
             // 
-            this.riTxtAtk.Location = new System.Drawing.Point(6, 36);
+            this.riTxtAtk.Location = new System.Drawing.Point(6, 21);
             this.riTxtAtk.Name = "riTxtAtk";
             this.riTxtAtk.ReadOnly = true;
-            this.riTxtAtk.Size = new System.Drawing.Size(261, 298);
+            this.riTxtAtk.Size = new System.Drawing.Size(261, 335);
             this.riTxtAtk.TabIndex = 1;
             this.riTxtAtk.Text = "";
             // 
@@ -440,10 +440,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1222, 504);
+            this.ClientSize = new System.Drawing.Size(1233, 494);
             this.Controls.Add(this.groupAttk);
             this.Controls.Add(this.groupIniziativa);
-            this.Controls.Add(this.grupDanni);
             this.Controls.Add(this.grdPG);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.lblNomePG);

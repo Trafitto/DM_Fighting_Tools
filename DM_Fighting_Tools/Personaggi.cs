@@ -14,7 +14,9 @@ namespace DM_Fighting_Tools
         int classeArmatura;
         int CAcontatto;
         int CAsprovvista;
+      
         string attacchi;
+
 
         public Personaggi (string name,int iniziativa,int life, int classeArmatura,int CAcontatto, int CAsprovvista,string attacchi)
         {

@@ -49,17 +49,19 @@ namespace DM_Fighting_Tools
 
 
                     }
+                    stReader.Close();
+                    LoadDB();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("File non trovato:\n" + ex.Message, "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Errore nella lettura del file:\n" + ex.Message, "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("File non trovato", "Errore",MessageBoxButtons.OK ,MessageBoxIcon.Error);
+                MessageBox.Show("File non trovato: "+path, "Errore",MessageBoxButtons.OK ,MessageBoxIcon.Error);
             }
-            LoadDB();
+           
         }
 
  
@@ -67,16 +69,24 @@ namespace DM_Fighting_Tools
         
         private void LoadDB()
         {
-            TablePG.Clear();
-            foreach (Personaggi pg in Personaggi)
+            try
             {
-                TablePG.Rows.Add(pg.Name, pg.Iniziativa, pg.Life,pg.ClasseArmatura,pg.CAContatto,pg.CASprovvista,pg.Attacchi);
+                TablePG.Clear();
+                foreach (Personaggi pg in Personaggi)
+                {
+                    TablePG.Rows.Add(pg.Name, pg.Iniziativa, pg.Life, pg.ClasseArmatura, pg.CAContatto, pg.CASprovvista, pg.Attacchi);
 
+                }
+
+                grdPG.Refresh();
+
+                grdPG.Sort(grdPG.Columns["iniziativa"], ListSortDirection.Descending);
             }
-           
-            grdPG.Refresh();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Errore nell'aggiornamento della tabella:\n" + ex.Message, "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             
-            grdPG.Sort(grdPG.Columns["iniziativa"], ListSortDirection.Descending);
             
         }
         
@@ -101,20 +111,10 @@ namespace DM_Fighting_Tools
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string fileLoad = "Personaggi.csv";
-            try
-            {
-                readFile(fileLoad, Personaggi, true);
-            }
-            catch (Exception ex)
-            {
-
-            }
-           
-            
-
-            
-            
+            //automatic file loaded 
+            string fileLoad = "StartingFile.csv";
+          
+            readFile(fileLoad, Personaggi, true);
             
         }
 
@@ -148,35 +148,24 @@ namespace DM_Fighting_Tools
                 string nome = Convert.ToString(cell.Value);
                 lblNomePG.Text = nome;
             }
-            catch (Exception ex)
+            catch
             {
-               
-            }
-            
-            if (e.ColumnIndex==2) //indice colonna vita
-            {
-                //DataGridViewCell cell = grdPG.Rows[e.RowIndex].Cells[e.ColumnIndex];
                 
-                grupDanni.Visible = true;
-                groupIniziativa.Visible = false;
-                
-
             }
-            else if (e.ColumnIndex==1 || e.ColumnIndex==3 || e.ColumnIndex==4 || e.ColumnIndex == 5 || e.ColumnIndex == 6)
+        
+            if (e.ColumnIndex == 1 || e.ColumnIndex == 2 || e.ColumnIndex == 3 || e.ColumnIndex == 4 || e.ColumnIndex == 5 || e.ColumnIndex == 6)
             {
                 groupIniziativa.Visible = true;
-                grupDanni.Visible = false;
                 
-              
             }
-       
             else
             {
                 groupIniziativa.Visible = false;
-                grupDanni.Visible = false;
             }
 
-            SelectAtk();
+             
+
+                SelectAtk();
         }
 
         private void button1_Click(object sender, EventArgs e) //btnsottrai
