@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Text.RegularExpressions;
+
 namespace DM_Fighting_Tools
 {
    
@@ -89,7 +91,7 @@ namespace DM_Fighting_Tools
             
             
         }
-        
+        Regex reg= new Regex(@"^[0-9]+$");
         public Form1()
         {
             InitializeComponent();
@@ -138,7 +140,17 @@ namespace DM_Fighting_Tools
                 }
             }
         }
-    
+        
+        private void ClearTextBox()
+        {
+            txtmodVita.Text = "";
+            txtIniziativa.Text = "";
+            txtCA.Text = "";
+            txtCAcontatto.Text = "";
+            txtCAsprovvista.Text = "";
+           
+           
+        }
     
         private void grdPG_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -156,7 +168,7 @@ namespace DM_Fighting_Tools
             if (e.ColumnIndex == 1 || e.ColumnIndex == 2 || e.ColumnIndex == 3 || e.ColumnIndex == 4 || e.ColumnIndex == 5 || e.ColumnIndex == 6)
             {
                 groupIniziativa.Visible = true;
-                
+                ClearTextBox();
             }
             else
             {
