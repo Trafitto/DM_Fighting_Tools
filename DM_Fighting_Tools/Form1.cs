@@ -120,31 +120,33 @@ namespace DM_Fighting_Tools
             
         }
 
-        private void SelectAtk()
-        {
-            foreach (Personaggi pg in Personaggi)
-            {
-                if (pg.Name == lblNomePG.Text)
-                {
-                    riTxtAtk.Text = "";
-                    string[] AtkNome = pg.Attacchi.Split('-');
-                    for (int i = 0; i < AtkNome.Length; i++)
-                    {
-                        string[] atk = AtkNome[i].Split('|');
-                        for (int j = 0; j < atk.Length - 1; j++)
-                        {
-                            riTxtAtk.Text += atk[j] + " " + atk[j + 1] + "\n";
-                        }
-                    }
+          private void SelectAtk()
+          {
+              foreach (Personaggi pg in Personaggi)
+              {
+                  if (pg.Name == lblNomePG.Text)
+                  {
+                      riTxtAtk.Text = "";
+                      string[] AtkNome = pg.Attacchi.Split('-');
+                      for (int i = 0; i < AtkNome.Length; i++)
+                      {
+                          string[] atk = AtkNome[i].Split('|');
+                          for (int j = 0; j < atk.Length - 1; j++)
+                          {
+                              riTxtAtk.Text += atk[j] + " " + atk[j + 1] + "\n";
+                          }
+                      }
 
-                }
-            }
-        }
-        
+                  }
+              }
+          }
+
+
+        //TODO: Clear text box when changing selected enemy
         private void ClearTextBox()
         {
-            txtmodVita.Text = "";
-            txtIniziativa.Text = "";
+            txtmodVita.Text = null;
+            txtIniziativa.Text = null;
             txtCA.Text = "";
             txtCAcontatto.Text = "";
             txtCAsprovvista.Text = "";
@@ -168,7 +170,7 @@ namespace DM_Fighting_Tools
             if (e.ColumnIndex == 1 || e.ColumnIndex == 2 || e.ColumnIndex == 3 || e.ColumnIndex == 4 || e.ColumnIndex == 5 || e.ColumnIndex == 6)
             {
                 groupIniziativa.Visible = true;
-                ClearTextBox();
+                //ClearTextBox();
             }
             else
             {
@@ -213,7 +215,7 @@ namespace DM_Fighting_Tools
             {
                 if (pg.Name == lblNomePG.Text)
                 {
-                    if (txtIniziativa.Text != null)
+                    if (txtIniziativa.Text != null || txtIniziativa.Text!="" )
                     {
                         pg.Iniziativa = Convert.ToInt32(txtIniziativa.Text);
                     }
@@ -251,7 +253,7 @@ namespace DM_Fighting_Tools
             {
                 if (pg.Name == lblNomePG.Text)
                 {
-                    if (txtCA.Text != null)
+                    if (txtCA.Text != null || txtCA.Text!="")
                     {
                         pg.ClasseArmatura = Convert.ToInt32(txtCA.Text);
                     }
@@ -267,7 +269,7 @@ namespace DM_Fighting_Tools
             {
                 if (pg.Name == lblNomePG.Text)
                 {
-                    if (txtCAcontatto.Text != null)
+                    if (txtCAcontatto.Text != null || txtCAcontatto.Text!="")
                     {
                         pg.CAContatto = Convert.ToInt32(txtCAcontatto.Text);
                     }
@@ -283,7 +285,7 @@ namespace DM_Fighting_Tools
             {
                 if (pg.Name == lblNomePG.Text)
                 {
-                    if (txtCAsprovvista.Text != null)
+                    if (txtCAsprovvista.Text != null || txtCAsprovvista.Text!="")
                     {
                         pg.CASprovvista = Convert.ToInt32(txtCAsprovvista.Text);
                     }
