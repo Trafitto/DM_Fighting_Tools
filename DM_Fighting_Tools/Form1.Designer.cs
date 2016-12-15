@@ -59,6 +59,7 @@
             this.txtmodVita = new System.Windows.Forms.TextBox();
             this.lblNomePG = new System.Windows.Forms.Label();
             this.groupIniziativa = new System.Windows.Forms.GroupBox();
+            this.btnRemove = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCAsprovvista = new System.Windows.Forms.TextBox();
             this.lblCAcontatto = new System.Windows.Forms.Label();
@@ -326,6 +327,7 @@
             // 
             // groupIniziativa
             // 
+            this.groupIniziativa.Controls.Add(this.btnRemove);
             this.groupIniziativa.Controls.Add(this.label2);
             this.groupIniziativa.Controls.Add(this.grupDanni);
             this.groupIniziativa.Controls.Add(this.txtCAsprovvista);
@@ -343,6 +345,17 @@
             this.groupIniziativa.TabStop = false;
             this.groupIniziativa.Text = "Dati: Iniziativa ecc.";
             this.groupIniziativa.Visible = false;
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemove.Location = new System.Drawing.Point(10, 334);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(57, 21);
+            this.btnRemove.TabIndex = 9;
+            this.btnRemove.Text = "Remove";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // label2
             // 
@@ -509,6 +522,7 @@
         private System.Windows.Forms.GroupBox groupAttk;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.RichTextBox riTxtAtk;
+        private System.Windows.Forms.Button btnRemove;
     }
 }
 

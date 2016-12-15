@@ -66,8 +66,7 @@ namespace DM_Fighting_Tools
            
         }
 
- 
-
+     
         
         private void LoadDB()
         {
@@ -150,6 +149,7 @@ namespace DM_Fighting_Tools
             txtCA.Text = "";
             txtCAcontatto.Text = "";
             txtCAsprovvista.Text = "";
+            riTxtAtk.Text = "";
            
            
         }
@@ -294,6 +294,22 @@ namespace DM_Fighting_Tools
             }
             LoadDB();
         }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            foreach (Personaggi pg in Personaggi)
+            {
+                if (pg.Name == lblNomePG.Text)
+                {
+                    personaggi.Remove(pg);
+                    break;
+                }
+            }
+            LoadDB();
+            ClearTextBox();
+        }
+
+      
     }
     
 }
