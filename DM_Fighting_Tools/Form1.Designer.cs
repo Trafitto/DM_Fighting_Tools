@@ -70,7 +70,6 @@
             this.txtIniziativa = new System.Windows.Forms.TextBox();
             this.groupAttk = new System.Windows.Forms.GroupBox();
             this.riTxtAtk = new System.Windows.Forms.RichTextBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbPG)).BeginInit();
@@ -105,7 +104,7 @@
             this.nuovoMenu,
             this.aggiungiAccodaMenu});
             this.apriToolStripMenuItem1.Name = "apriToolStripMenuItem1";
-            this.apriToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.apriToolStripMenuItem1.Size = new System.Drawing.Size(96, 22);
             this.apriToolStripMenuItem1.Text = "Apri";
             // 
             // nuovoMenu
@@ -453,12 +452,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1233, 494);
             this.Controls.Add(this.groupAttk);
             this.Controls.Add(this.groupIniziativa);
             this.Controls.Add(this.grdPG);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.lblNomePG);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -520,7 +521,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Attacchi;
         private System.Data.DataColumn dataColumn7;
         private System.Windows.Forms.GroupBox groupAttk;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.RichTextBox riTxtAtk;
         private System.Windows.Forms.Button btnRemove;
     }
