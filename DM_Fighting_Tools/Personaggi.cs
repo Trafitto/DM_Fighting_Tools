@@ -16,9 +16,10 @@ namespace DM_Fighting_Tools
         int CAsprovvista;
       
         string attacchi;
+        string note;
 
 
-        public Personaggi (string name,int iniziativa,int life, int classeArmatura,int CAcontatto, int CAsprovvista,string attacchi)
+        public Personaggi (string name,int iniziativa,int life, int classeArmatura,int CAcontatto, int CAsprovvista,string attacchi,string note)
         {
             this.name = name;
             this.iniziativa = iniziativa;
@@ -27,6 +28,7 @@ namespace DM_Fighting_Tools
             this.CAcontatto = CAcontatto;
             this.CAsprovvista = CAsprovvista;
             this.attacchi = attacchi;
+            this.note = note;
         }
 
         public string Name
@@ -63,6 +65,11 @@ namespace DM_Fighting_Tools
         {
             get { return attacchi; }
             set { attacchi = value; }
+        }
+        public string Note
+        {
+            get { return note; }
+            set { note = value; }
         }
 
 

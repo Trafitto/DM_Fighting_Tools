@@ -12,7 +12,7 @@ using System.Text.RegularExpressions;
 
 namespace DM_Fighting_Tools
 {
-   
+   //BUONA FORTUNA °3°
     public partial class Form1 : Form
     {
          
@@ -29,7 +29,6 @@ namespace DM_Fighting_Tools
                 try
                 {
 
-                   // List<Attacchi> attacchi = new List<Attacchi>();
                     stReader = new StreamReader(path);
                     string line;
                     stReader.ReadLine(); //salto la prima riga d'intestazione
@@ -37,18 +36,7 @@ namespace DM_Fighting_Tools
                     {
 
                         string[] parametro = line.Split(';');
-                       /* string[] armaNome = parametro[6].Split('-');
-                        for (int i = 0; i < armaNome.Length; i++)
-                        {
-                            string[] a = armaNome[i].Split('|');
-                            attacchi.Add(new Attacchi(a[0], a[1]));
-                        }*/
-
-
-                        pg.Add(new Personaggi(parametro[0], Convert.ToInt32(parametro[1]), Convert.ToInt32(parametro[2]), Convert.ToInt32(parametro[3]), Convert.ToInt32(parametro[4]), Convert.ToInt32(parametro[5]),parametro[6]));
-
-                       // attacchi.Clear();
-
+                        pg.Add(new Personaggi(parametro[0], Convert.ToInt32(parametro[1]), Convert.ToInt32(parametro[2]), Convert.ToInt32(parametro[3]), Convert.ToInt32(parametro[4]), Convert.ToInt32(parametro[5]),parametro[6],parametro[7]));
 
                     }
                     stReader.Close();
@@ -66,37 +54,39 @@ namespace DM_Fighting_Tools
            
         }
 
-     
-        
-        private void LoadDB()
-        {
+      
+
+
+
+       private void LoadDB()
+       {
+
             try
             {
                 TablePG.Clear();
+               
                 foreach (Personaggi pg in Personaggi)
                 {
-                    TablePG.Rows.Add(pg.Name, pg.Iniziativa, pg.Life, pg.ClasseArmatura, pg.CAContatto, pg.CASprovvista, pg.Attacchi);
+                    TablePG.Rows.Add(pg.Name, pg.Iniziativa, pg.Life, pg.ClasseArmatura, pg.CAContatto, pg.CASprovvista);
 
                 }
-
-                grdPG.Refresh();
-
-                grdPG.Sort(grdPG.Columns["iniziativa"], ListSortDirection.Descending);
             }
+
             catch (Exception ex)
             {
-                MessageBox.Show("Errore nell'aggiornamento della tabella:\n" + ex.Message, "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Errore nell'inserimento dei dati:\n" + ex.Message, "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
-            
+            grdPG.Sort(grdPG.Columns["iniziativa"], ListSortDirection.Descending);
+            grdPG.Rows[rowindex].Selected = true;
+           
+
         }
-        Regex reg= new Regex(@"^[0-9]+$");
+   
         public Form1()
         {
             InitializeComponent();
         }
         private List<Personaggi> personaggi = new List<Personaggi>();
-
         internal List<Personaggi> Personaggi
         {
             get
@@ -109,7 +99,7 @@ namespace DM_Fighting_Tools
                 personaggi = value;
             }
         }
-
+        int rowindex;
         private void Form1_Load(object sender, EventArgs e)
         {
             //automatic file loaded 
@@ -118,27 +108,46 @@ namespace DM_Fighting_Tools
             readFile(fileLoad, Personaggi, true);
             
         }
-
-          private void SelectAtk()
+        //legge i vari attacchi ogni virgola inserisce un rigo accapo  
+        private void SelectAtk()
           {
               foreach (Personaggi pg in Personaggi)
               {
                   if (pg.Name == lblNomePG.Text)
                   {
                       riTxtAtk.Text = "";
-                      string[] AtkNome = pg.Attacchi.Split('-');
+                      string[] AtkNome = pg.Attacchi.Split(',');
                       for (int i = 0; i < AtkNome.Length; i++)
                       {
-                          string[] atk = AtkNome[i].Split('|');
-                          for (int j = 0; j < atk.Length - 1; j++)
-                          {
-                              riTxtAtk.Text += atk[j] + " " + atk[j + 1] + "\n";
-                          }
+                          
+                         
+                        riTxtAtk.Text += AtkNome[i]  + "\n";
+                          
                       }
 
                   }
               }
           }
+        //legge le note ogni virgola inserisce un rigo accapo  
+        private void ReadNote()
+        {
+            foreach (Personaggi pg in Personaggi)
+            {
+                if (pg.Name == lblNomePG.Text)
+                {
+                    richNote.Text = "";
+                    string[] note = pg.Note.Split(',');
+                    for (int i = 0; i < note.Length; i++)
+                    {
+
+
+                        richNote.Text += note[i] + "\n";
+
+                    }
+
+                }
+            }
+        }
 
 
         //TODO: Clear text box when changing selected enemy
@@ -150,6 +159,7 @@ namespace DM_Fighting_Tools
             txtCAcontatto.Text = "";
             txtCAsprovvista.Text = "";
             riTxtAtk.Text = "";
+            richNote.Text = "";
            
            
         }
@@ -159,6 +169,7 @@ namespace DM_Fighting_Tools
             try
             {
                 DataGridViewCell cell = grdPG.Rows[e.RowIndex].Cells[0]; //indice colonna nome
+                rowindex = e.RowIndex;
                 string nome = Convert.ToString(cell.Value);
                 lblNomePG.Text = nome;
             }
@@ -180,6 +191,7 @@ namespace DM_Fighting_Tools
              
 
                 SelectAtk();
+                ReadNote();
         }
 
         private void button1_Click(object sender, EventArgs e) //btnsottrai
@@ -242,7 +254,7 @@ namespace DM_Fighting_Tools
 
         private void infoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Il file deve essere un csv separato da ; con la prima riga d'intestazione\nLe colonne sono riportate di seguito\n nome;iniziativa;vita;classe armatura;CA contatto;Ca sprovvista;NomeAttacco|dadi-NomeAttacco2|dadi", "Info",MessageBoxButtons.OK,MessageBoxIcon.Information);
+           MessageBox.Show("Work in progress...", "Info",MessageBoxButtons.OK,MessageBoxIcon.Information);
      
 
         }

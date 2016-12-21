@@ -36,13 +36,6 @@
             this.aggiungiAccodaMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grdPG = new System.Windows.Forms.DataGridView();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iniziativa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lifeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CA_Contatto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CA_Sprovvista = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Attacchi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dbPG = new System.Data.DataSet();
             this.TablePG = new System.Data.DataTable();
             this.dataColumn1 = new System.Data.DataColumn();
@@ -70,6 +63,14 @@
             this.txtIniziativa = new System.Windows.Forms.TextBox();
             this.groupAttk = new System.Windows.Forms.GroupBox();
             this.riTxtAtk = new System.Windows.Forms.RichTextBox();
+            this.groupNote = new System.Windows.Forms.GroupBox();
+            this.richNote = new System.Windows.Forms.RichTextBox();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iniziativa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lifeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CA_Contatto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CA_Sprovvista = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbPG)).BeginInit();
@@ -77,6 +78,7 @@
             this.grupDanni.SuspendLayout();
             this.groupIniziativa.SuspendLayout();
             this.groupAttk.SuspendLayout();
+            this.groupNote.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -130,6 +132,8 @@
             // 
             // grdPG
             // 
+            this.grdPG.AllowUserToAddRows = false;
+            this.grdPG.AllowUserToDeleteRows = false;
             this.grdPG.AutoGenerateColumns = false;
             this.grdPG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.grdPG.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
@@ -141,75 +145,18 @@
             this.lifeDataGridViewTextBoxColumn,
             this.CA,
             this.CA_Contatto,
-            this.CA_Sprovvista,
-            this.Attacchi});
+            this.CA_Sprovvista});
             this.grdPG.DataMember = "PGdata";
             this.grdPG.DataSource = this.dbPG;
             this.grdPG.Location = new System.Drawing.Point(12, 61);
+            this.grdPG.MultiSelect = false;
             this.grdPG.Name = "grdPG";
+            this.grdPG.ReadOnly = true;
             this.grdPG.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdPG.Size = new System.Drawing.Size(620, 385);
+            this.grdPG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grdPG.Size = new System.Drawing.Size(468, 385);
             this.grdPG.TabIndex = 1;
             this.grdPG.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grdPG_CellMouseClick);
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.Frozen = true;
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Nome";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Width = 60;
-            // 
-            // iniziativa
-            // 
-            this.iniziativa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.iniziativa.DataPropertyName = "Iniziativa";
-            this.iniziativa.Frozen = true;
-            this.iniziativa.HeaderText = "Iniziativa";
-            this.iniziativa.Name = "iniziativa";
-            this.iniziativa.Width = 73;
-            // 
-            // lifeDataGridViewTextBoxColumn
-            // 
-            this.lifeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.lifeDataGridViewTextBoxColumn.DataPropertyName = "Life";
-            this.lifeDataGridViewTextBoxColumn.Frozen = true;
-            this.lifeDataGridViewTextBoxColumn.HeaderText = "Vita";
-            this.lifeDataGridViewTextBoxColumn.Name = "lifeDataGridViewTextBoxColumn";
-            this.lifeDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // CA
-            // 
-            this.CA.DataPropertyName = "CA";
-            this.CA.Frozen = true;
-            this.CA.HeaderText = "CA";
-            this.CA.Name = "CA";
-            this.CA.Width = 46;
-            // 
-            // CA_Contatto
-            // 
-            this.CA_Contatto.DataPropertyName = "CA_Contatto";
-            this.CA_Contatto.Frozen = true;
-            this.CA_Contatto.HeaderText = "CA_Contatto";
-            this.CA_Contatto.Name = "CA_Contatto";
-            this.CA_Contatto.Width = 92;
-            // 
-            // CA_Sprovvista
-            // 
-            this.CA_Sprovvista.DataPropertyName = "CA_Sprovvista";
-            this.CA_Sprovvista.Frozen = true;
-            this.CA_Sprovvista.HeaderText = "CA_Sprovvista";
-            this.CA_Sprovvista.Name = "CA_Sprovvista";
-            this.CA_Sprovvista.Width = 102;
-            // 
-            // Attacchi
-            // 
-            this.Attacchi.DataPropertyName = "Attacchi";
-            this.Attacchi.Frozen = true;
-            this.Attacchi.HeaderText = "Attacchi";
-            this.Attacchi.Name = "Attacchi";
-            this.Attacchi.Width = 71;
             // 
             // dbPG
             // 
@@ -318,7 +265,7 @@
             // 
             this.lblNomePG.AutoSize = true;
             this.lblNomePG.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomePG.Location = new System.Drawing.Point(913, 36);
+            this.lblNomePG.Location = new System.Drawing.Point(877, 41);
             this.lblNomePG.Name = "lblNomePG";
             this.lblNomePG.Size = new System.Drawing.Size(111, 25);
             this.lblNomePG.TabIndex = 0;
@@ -339,7 +286,7 @@
             this.groupIniziativa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupIniziativa.Location = new System.Drawing.Point(939, 84);
             this.groupIniziativa.Name = "groupIniziativa";
-            this.groupIniziativa.Size = new System.Drawing.Size(283, 362);
+            this.groupIniziativa.Size = new System.Drawing.Size(283, 389);
             this.groupIniziativa.TabIndex = 5;
             this.groupIniziativa.TabStop = false;
             this.groupIniziativa.Text = "Dati: Iniziativa ecc.";
@@ -348,7 +295,7 @@
             // btnRemove
             // 
             this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.Location = new System.Drawing.Point(10, 334);
+            this.btnRemove.Location = new System.Drawing.Point(10, 353);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(57, 21);
             this.btnRemove.TabIndex = 9;
@@ -434,7 +381,7 @@
             this.groupAttk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupAttk.Location = new System.Drawing.Point(648, 84);
             this.groupAttk.Name = "groupAttk";
-            this.groupAttk.Size = new System.Drawing.Size(273, 362);
+            this.groupAttk.Size = new System.Drawing.Size(273, 186);
             this.groupAttk.TabIndex = 6;
             this.groupAttk.TabStop = false;
             this.groupAttk.Text = "Attacchi";
@@ -444,9 +391,86 @@
             this.riTxtAtk.Location = new System.Drawing.Point(6, 21);
             this.riTxtAtk.Name = "riTxtAtk";
             this.riTxtAtk.ReadOnly = true;
-            this.riTxtAtk.Size = new System.Drawing.Size(261, 335);
+            this.riTxtAtk.Size = new System.Drawing.Size(261, 159);
             this.riTxtAtk.TabIndex = 1;
             this.riTxtAtk.Text = "";
+            // 
+            // groupNote
+            // 
+            this.groupNote.Controls.Add(this.richNote);
+            this.groupNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupNote.Location = new System.Drawing.Point(648, 287);
+            this.groupNote.Name = "groupNote";
+            this.groupNote.Size = new System.Drawing.Size(273, 186);
+            this.groupNote.TabIndex = 7;
+            this.groupNote.TabStop = false;
+            this.groupNote.Text = "Note";
+            // 
+            // richNote
+            // 
+            this.richNote.Location = new System.Drawing.Point(6, 21);
+            this.richNote.Name = "richNote";
+            this.richNote.ReadOnly = true;
+            this.richNote.Size = new System.Drawing.Size(261, 159);
+            this.richNote.TabIndex = 1;
+            this.richNote.Text = "";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.Frozen = true;
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Nome";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // iniziativa
+            // 
+            this.iniziativa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.iniziativa.DataPropertyName = "Iniziativa";
+            this.iniziativa.Frozen = true;
+            this.iniziativa.HeaderText = "Iniziativa";
+            this.iniziativa.Name = "iniziativa";
+            this.iniziativa.ReadOnly = true;
+            this.iniziativa.Width = 73;
+            // 
+            // lifeDataGridViewTextBoxColumn
+            // 
+            this.lifeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.lifeDataGridViewTextBoxColumn.DataPropertyName = "Life";
+            this.lifeDataGridViewTextBoxColumn.Frozen = true;
+            this.lifeDataGridViewTextBoxColumn.HeaderText = "Vita";
+            this.lifeDataGridViewTextBoxColumn.Name = "lifeDataGridViewTextBoxColumn";
+            this.lifeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lifeDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // CA
+            // 
+            this.CA.DataPropertyName = "CA";
+            this.CA.Frozen = true;
+            this.CA.HeaderText = "CA";
+            this.CA.Name = "CA";
+            this.CA.ReadOnly = true;
+            this.CA.Width = 46;
+            // 
+            // CA_Contatto
+            // 
+            this.CA_Contatto.DataPropertyName = "CA_Contatto";
+            this.CA_Contatto.Frozen = true;
+            this.CA_Contatto.HeaderText = "CA_Contatto";
+            this.CA_Contatto.Name = "CA_Contatto";
+            this.CA_Contatto.ReadOnly = true;
+            this.CA_Contatto.Width = 92;
+            // 
+            // CA_Sprovvista
+            // 
+            this.CA_Sprovvista.DataPropertyName = "CA_Sprovvista";
+            this.CA_Sprovvista.Frozen = true;
+            this.CA_Sprovvista.HeaderText = "CA_Sprovvista";
+            this.CA_Sprovvista.Name = "CA_Sprovvista";
+            this.CA_Sprovvista.ReadOnly = true;
+            this.CA_Sprovvista.Width = 102;
             // 
             // Form1
             // 
@@ -454,6 +478,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1233, 494);
+            this.Controls.Add(this.groupNote);
             this.Controls.Add(this.groupAttk);
             this.Controls.Add(this.groupIniziativa);
             this.Controls.Add(this.grdPG);
@@ -475,6 +500,7 @@
             this.groupIniziativa.ResumeLayout(false);
             this.groupIniziativa.PerformLayout();
             this.groupAttk.ResumeLayout(false);
+            this.groupNote.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -512,17 +538,18 @@
         private System.Windows.Forms.TextBox txtCAcontatto;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCAsprovvista;
+        private System.Data.DataColumn dataColumn7;
+        private System.Windows.Forms.GroupBox groupAttk;
+        private System.Windows.Forms.RichTextBox riTxtAtk;
+        private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.GroupBox groupNote;
+        private System.Windows.Forms.RichTextBox richNote;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iniziativa;
         private System.Windows.Forms.DataGridViewTextBoxColumn lifeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CA;
         private System.Windows.Forms.DataGridViewTextBoxColumn CA_Contatto;
         private System.Windows.Forms.DataGridViewTextBoxColumn CA_Sprovvista;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Attacchi;
-        private System.Data.DataColumn dataColumn7;
-        private System.Windows.Forms.GroupBox groupAttk;
-        private System.Windows.Forms.RichTextBox riTxtAtk;
-        private System.Windows.Forms.Button btnRemove;
     }
 }
 
