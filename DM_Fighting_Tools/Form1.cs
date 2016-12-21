@@ -254,9 +254,10 @@ namespace DM_Fighting_Tools
 
         private void infoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           MessageBox.Show("Work in progress...", "Info",MessageBoxButtons.OK,MessageBoxIcon.Information);
-     
+            Help helpForm = new Help();
 
+
+            helpForm.Show();
         }
 
         private void txtCA_TextChanged(object sender, EventArgs e)
