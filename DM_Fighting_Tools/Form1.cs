@@ -77,7 +77,11 @@ namespace DM_Fighting_Tools
                 MessageBox.Show("Errore nell'inserimento dei dati:\n" + ex.Message, "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             grdPG.Sort(grdPG.Columns["iniziativa"], ListSortDirection.Descending);
-            grdPG.Rows[rowindex].Selected = true;
+            if (TablePG.Rows.Count>0)
+            {
+                grdPG.Rows[rowindex].Selected = true;
+            }
+           
            
 
         }
