@@ -231,7 +231,7 @@ namespace DM_Fighting_Tools
             {
                 if (pg.Name == lblNomePG.Text)
                 {
-                    if (txtIniziativa.Text != null || txtIniziativa.Text!="" )
+                    if (txtIniziativa.Text != null || txtIniziativa.Text!="" || !string.IsNullOrEmpty(txtIniziativa.Text))
                     {
                         pg.Iniziativa = Convert.ToInt32(txtIniziativa.Text);
                     }
@@ -326,7 +326,20 @@ namespace DM_Fighting_Tools
             ClearTextBox();
         }
 
-      
+        private void grdPG_SelectionChanged(object sender, EventArgs e)
+        {
+          /* foreach (Personaggi pg in Personaggi)
+            {
+                if (pg.Name == lblNomePG.Text)
+                {
+                    txtIniziativa.Text =Convert.ToString(pg.Iniziativa);
+                    txtCA.Text = Convert.ToString(pg.ClasseArmatura);
+                    txtCAcontatto.Text = Convert.ToString(pg.CAContatto);
+                    txtCAsprovvista.Text = Convert.ToString(pg.CASprovvista);
+                    break;
+                }
+            }*/
+        }
     }
     
 }
